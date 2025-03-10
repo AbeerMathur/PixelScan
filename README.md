@@ -1,2 +1,0 @@
-# PixelScan
-Deepfake detection
