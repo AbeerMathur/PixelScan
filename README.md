@@ -121,24 +121,29 @@ The ensemble model combines:
 ### Performance Graphs
 
 1. **Confusion Matrix**  
-   The confusion matrix showcases the high number of true positives and true negatives, reflecting the model's reliability in DeepFake detection.  
-   ![Confusion Matrix](https://github.com/manvendrasingh09/PixelScan/blob/main/Resources/Confusion%20Matrix.png)
+   The confusion matrix showcases the high number of true positives and true negatives, reflecting the model's reliability in DeepFake detection.
+   
+   <img src="https://github.com/manvendrasingh09/PixelScan/blob/main/Resources/Confusion%20Matrix.png" width="500"/>
 
-2. **Training Accuracy**  
-   The ACNN model's training accuracy started at 50% and steadily improved, reaching 98% by the final epoch.  
-   ![ACNN Training Accuracy](https://github.com/manvendrasingh09/PixelScan/blob/main/Resources/ACNN%20Training%20Accuracy.png)
+3. **Training Accuracy**  
+   The ACNN model's training accuracy started at 50% and steadily improved, reaching 98% by the final epoch.
+   
+   <img src="https://github.com/manvendrasingh09/PixelScan/blob/main/Resources/ACNN%20Training%20Accuracy.png" width="500"/>
 
-3. **Training Loss**  
-   The ACNN model's training loss started at 1.6 and decreased to 0.07, showing effective learning during training.  
-   ![ACNN Training Loss](https://github.com/manvendrasingh09/PixelScan/blob/main/Resources/ACNN%20Training%20Loss.png)
+5. **Training Loss**  
+   The ACNN model's training loss started at 1.6 and decreased to 0.07, showing effective learning during training.
+   
+   <img src="https://github.com/manvendrasingh09/PixelScan/blob/main/Resources/ACNN%20Training%20Loss.png" width="500"/>
 
-4. **Precision-Recall Curve**  
-   The precision-recall curve with an area of 1.00 demonstrates the ensemble model's capability to maintain high precision and recall across all thresholds.  
-   ![Precision-Recall Curve](https://github.com/manvendrasingh09/PixelScan/blob/main/Resources/Precision-Recall%20Curve.png)
+7. **Precision-Recall Curve**  
+   The precision-recall curve with an area of 1.00 demonstrates the ensemble model's capability to maintain high precision and recall across all thresholds.
+   
+   <img src="https://github.com/manvendrasingh09/PixelScan/blob/main/Resources/Precision-Recall%20Curve.png" width="500"/>
 
-5. **ROC Curve**  
-   The ROC curve with an area of 1.00 highlights the strong performance of the ensemble model in distinguishing between real and DeepFake images.  
-   ![ROC Curve](https://github.com/manvendrasingh09/PixelScan/blob/main/Resources/ROC%20Curve.png)
+9. **ROC Curve**  
+   The ROC curve with an area of 1.00 highlights the strong performance of the ensemble model in distinguishing between real and DeepFake images.
+   
+   <img src="https://github.com/manvendrasingh09/PixelScan/blob/main/Resources/ROC%20Curve.png" width="500"/>
 
 ---
 
@@ -147,6 +152,44 @@ The ensemble model combines:
 1. Visit [PixelScan](https://pixelscan.site) to download the application.
 2. Upload your image to the app.
 3. Get a classification result indicating whether the image is real or fake.
+
+---
+## **Run Locally with [Docker](https://hub.docker.com/r/kshitizb/pixelscan)**
+
+### **1. Pull the Docker Image**
+To download the latest version of `pixelscan` from Docker Hub, run:
+
+```bash
+docker pull kshitizb/pixelscan:latest
+```
+
+### **2. Run the Container**
+Start the container and expose it on port **8000**:
+
+```bash
+docker run -d -p 8000:8000 --name pixelscan --restart unless-stopped kshitizb/pixelscan:latest
+```
+
+### **3. Access the API**
+Once the container is running, open a browser and go to:
+
+```
+http://<your-server-ip>:8000
+```
+
+Or test via **FastAPI interactive docs**:
+
+```
+http://<your-server-ip>:8000/docs
+```
+
+---
+
+## **Endpoints**
+| Method  | Endpoint       | Description |
+|---------|---------------|-------------|
+| **GET** | `/`           | Homepage - Image Upload Form |
+| **POST** | `/upload/`   | Upload and classify an image |
 
 ---
 
